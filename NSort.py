@@ -71,12 +71,38 @@ for j in range(10):
         # Must iterate to find place in array
         found = False
         index = 0
+        newIndex = len(sortedList) // 2
+        #print ("index: " + str(newIndex))
         while (found == False):
             operations += 1
-            if ((item > sortedList[index]) and (item <= sortedList[index + 1])):
-                sortedList.insert(index + 1, item)
-                found = True
+
+            if ((item > sortedList[index])):
+                if (item <= sortedList[index + 1]):
+                    sortedList.insert(index + 1, item)
+                    found = True
+
+                newIndex //= 2
+
+                if newIndex == 0:
+                    newIndex = 1
+
+                index += newIndex    
             else:
-                index += 1
+                newIndex //= 2
+
+                if newIndex == 0:
+                    newIndex = 1
+                
+                index -= newIndex
+
+            if index <= 0:
+                #print ("index zero")
+                index = 1
+
+            #print ("index: " + str(index))
+            #print (sortedList)
+            #print (item)
+            #input()
+            
         
     print ("operations: " + str(operations))
