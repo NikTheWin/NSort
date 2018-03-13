@@ -13,7 +13,7 @@ for j in range(10):
     operations = 2 # First two operations happen outside loop
 
     # Generate random test list
-    for i in range(1000):
+    for i in range(100000):
         toBeSorted.append(random.randint(0, 100))
 
     # No items yet in sorted list
@@ -71,8 +71,9 @@ for j in range(10):
         # Must iterate to find place in array
         found = False
         index = 0
-        newIndex = len(sortedList) // 2
+        newIndex = (len(sortedList) - 1) // 2
         #print ("index: " + str(newIndex))
+        forward = True
         while (found == False):
             operations += 1
 
@@ -81,19 +82,24 @@ for j in range(10):
                     sortedList.insert(index + 1, item)
                     found = True
 
-                newIndex //= 2
+                if (forward == False):
+                    newIndex //= 2
 
                 if newIndex == 0:
                     newIndex = 1
 
-                index += newIndex    
+                index += newIndex
+
+                Forward = True
             else:
-                newIndex //= 2
+                if (forward == True):
+                    newIndex //= 2
 
                 if newIndex == 0:
                     newIndex = 1
                 
                 index -= newIndex
+                forward = False
 
             if index <= 0:
                 #print ("index zero")
