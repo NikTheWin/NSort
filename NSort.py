@@ -22,7 +22,7 @@ for j in range(10):
     
     # Second item to sorted list
     item = toBeSorted.pop()
-    # Items fits outside sorted list (it always does for second item)
+    # Item fits outside sorted list (it always does for second item)
     if (item <= sortedList[0]):
         sortedList.insert(0, item)
     elif (item >= sortedList[-1]):
@@ -72,7 +72,6 @@ for j in range(10):
         found = False
         index = 0
         newIndex = (len(sortedList) - 1) // 2
-        #print ("index: " + str(newIndex))
         forward = True
         while (found == False):
             operations += 1
@@ -102,13 +101,18 @@ for j in range(10):
                 forward = False
 
             if index <= 0:
-                #print ("index zero")
                 index = 1
-
-            #print ("index: " + str(index))
-            #print (sortedList)
-            #print (item)
-            #input()
-            
         
     print ("operations: " + str(operations))
+
+
+for j in range(10):
+    toBeSorted = []
+
+    # Generate random test list
+    for i in range(100000):
+        toBeSorted.append(random.randint(0, 100))
+
+    toBeSorted.sort()
+
+    print("Gjort: " + str(j))    
