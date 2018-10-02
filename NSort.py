@@ -33,7 +33,7 @@ for j in range(10):
     for i in range(20):
         item = toBeSorted.pop()
 
-        # Items fits outside sorted list
+        # Item fits outside sorted list
         if (item <= sortedList[0]):
             sortedList.insert(0, item)
             operations += 1
@@ -58,7 +58,7 @@ for j in range(10):
     while len(toBeSorted) > 0:
         item = toBeSorted.pop()
 
-        # Items fits outside sorted list
+        # Item fits outside sorted list
         if (item <= sortedList[0]):
             sortedList.insert(0, item)
             operations += 1
